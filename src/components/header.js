@@ -5,7 +5,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Logo = styled.img`
-height: 60px;
 `;
 
 class Header extends React.Component {
@@ -43,7 +42,7 @@ class Header extends React.Component {
 			<nav className="navbar navbar-expand-lg navbar-light">
 				<div className="container">
 
-					<Link className="navbar-brand" to="/"><Logo src="/img/icon.png" alt="" /></Link>
+					<Link className="navbar-brand" to="/"><Logo src="/img/icon-s.png" alt="" /></Link>
 					<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span className="icon-bar"></span>
