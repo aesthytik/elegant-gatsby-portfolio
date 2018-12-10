@@ -1,14 +1,49 @@
+/* global $:true */
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import styled from 'styled-components'
 
-const Header = ({ siteTitle }) => (
-  <header className="header_area">
+const Logo = styled.img`
+height: 60px;
+`;
+
+class Header extends React.Component {
+	componentWillMount() {
+		var window_width = $(window).width(),
+    window_height = window.innerHeight,
+    header_height = $(".default-header").height(),
+    header_height_static = $(".site-header.static").outerHeight(),
+    fitscreen = window_height - header_height;
+
+  $(".fullscreen").css("height", window_height);
+  $(".fitscreen").css("height", fitscreen);
+
+  var nav_offset_top = $("header").height() + 50;
+
+		function navbarFixed() {
+			if ($(".header_area").length) {
+				$(window).scroll(function() {
+					var scroll = $(window).scrollTop();
+					if (scroll >= nav_offset_top) {
+						$(".header_area").addClass("navbar_fixed");
+					} else {
+						$(".header_area").removeClass("navbar_fixed");
+					}
+				});
+			}
+		}
+		navbarFixed();
+	}
+
+	render() {
+		return(
+			<header className="header_area">
 		<div className="main_menu">
 			<nav className="navbar navbar-expand-lg navbar-light">
 				<div className="container">
 
-					<a className="navbar-brand" href="index.html"><img src="img/logo.png" alt="" /></a>
+					<Link className="navbar-brand" to="/"><Logo src="/img/icon.png" alt="" /></Link>
 					<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span className="icon-bar"></span>
@@ -17,37 +52,19 @@ const Header = ({ siteTitle }) => (
 					</button>
 					<div className="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul className="nav navbar-nav menu_nav justify-content-end">
-							<li className="nav-item active"><a className="nav-link" href="index.html">Home</a></li>
-							<li className="nav-item"><a className="nav-link" href="about-us.html">About</a></li>
+							<li className="nav-item active"><Link to="/" className="nav-link">Home</Link></li>
 							<li className="nav-item submenu dropdown">
-								<a className="nav-link" href="#">Portfolio</a>
-								<ul className="dropdown-menu">
-									<li className="nav-item"><a className="nav-link" href="portfolio.html">Portfolio</a></li>
-									<li className="nav-item"><a className="nav-link" href="portfolio-details.html">Portrfolio Details</a></li>
-								</ul>
+								<Link to="/blog" className="nav-link dropdown-toggle">Blog</Link>
 							</li>
-							<li className="nav-item submenu dropdown">
-								<a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Pages</a>
-								<ul className="dropdown-menu">
-									<li className="nav-item"><a className="nav-link" href="elements.html">Elements</a></li>
-								</ul>
-							</li>
-							<li className="nav-item submenu dropdown">
-								<a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Blog</a>
-								<ul className="dropdown-menu">
-									<li classNameName="nav-item"><a className="nav-link" href="blog.html">Blog</a></li>
-									<li className="nav-item"><a className="nav-link" href="single-blog.html">Blog Details</a></li>
-								</ul>
-							</li>
-							<li className="nav-item"><a className="nav-link" href="contact.html">Contact</a></li>
+							<li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</div>
 	</header>
-)
+		)
+	}
+}
 
 export default Header

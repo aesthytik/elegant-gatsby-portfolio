@@ -41,9 +41,6 @@ export default class HTML extends React.Component {
 						<script src="/vendors/isotope/isotope-min.js" />
 						<script src="/vendors/owl-carousel/owl.carousel.min.js" />
 						<script src="/js/jquery.ajaxchimp.min.js" />
-						<script src="/js/mail-script.js" />
-						<script src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE" />
-						<script src="/js/gmaps.min.js" />
 						<script src="/js/theme.js" />
         </body>
       </html>

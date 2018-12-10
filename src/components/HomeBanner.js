@@ -1,6 +1,15 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import React from 'react'
+
+const Container = styled.section`
+ background-image: url(../img/banner/common-banner.jpg);
+  background-size: cover; 
+	.row {
+		height: 60% !important;
+	}
+`;
 
 class HomeBanner extends React.Component {
   componentDidMount() {
@@ -8,41 +17,21 @@ class HomeBanner extends React.Component {
   }
   render() {
     return(
-<section className="banner-area owl-carousel" id="home">
-  <div className="single_slide_banner slide_bg1">
-    <div className="container">
-      <div className="row fullscreen d-flex align-items-center">
-        <div className="banner-content col-lg-12 justify-content-center">
-          <h1>Steve Henriques</h1>
-          <h3>Personal portfolio Website</h3>
-          <a href="#" className="primary-btn">Hire Me</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="single_slide_banner slide_bg2">
-    <div className="container">
-      <div className="row fullscreen d-flex align-items-center">
-        <div className="banner-content col-lg-12 justify-content-center">
-          <h1>Steve Henriques</h1>
-          <h3>Personal portfolio Website</h3>
-          <a href="#" className="primary-btn">Hire Me</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="single_slide_banner slide_bg3">
-    <div className="container">
-      <div className="row fullscreen justify-content-endd-flex align-items-center">
-        <div className="banner-content col-lg-12 justify-content-center">
-          <h1>Steve Henriques</h1>
-          <h3>Personal portfolio Website</h3>
-          <a href="#" className="primary-btn">Hire Me</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<Container className="section_gap">
+		<div className="container">
+	
+			<div class="row fullscreen d-flex align-items-center">
+					<div class="banner-content col-lg-12 justify-content-center">
+						<h1>Vipin Kumar Rawat</h1>
+						<h3>Coder | Designer | Writer</h3>
+						<a href="#" className="primary-btn">Hire Me</a>
+					</div>
+				</div>
+
+			<div className="row newsletter_form justify-content-center">
+			</div>
+		</div>
+	</Container>
     )
   }
 }
