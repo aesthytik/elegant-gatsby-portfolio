@@ -9,7 +9,7 @@ height: 60px;
 `;
 
 class Header extends React.Component {
-	componentWillMount() {
+	componentDidMount() {
 		var window_width = $(window).width(),
     window_height = window.innerHeight,
     header_height = $(".default-header").height(),
